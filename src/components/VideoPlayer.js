@@ -6,7 +6,7 @@ const VideoPlayer = ({ videoName }) => {
     const [videoUrl, setVideoUrl] = useState('');
     useEffect(() => {
         const path = 'video/' + videoName;
-        let imageRef = firebase.storage().ref('video/PAT_18_11_2020.mp4');
+        let imageRef = firebase.storage().ref(path);
         imageRef
             .getDownloadURL()
             .then((url) => {

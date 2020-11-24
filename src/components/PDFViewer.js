@@ -26,11 +26,6 @@ const PDFViewer = ({ documentName }) => {
     return (  
         <div>
             <iframe src={documentUrl+"#FitH"} width="800px" height="1500px"  />
-            {/* <Document file={documentUrl} 
-            onLoadSuccess={onDocumentLoadSuccess}>
-                <Page pageNumber={pageNumber} />
-            </Document>
-            <p>Page {pageNumber} of {numPages}</p> */}
         </div>
     );
 }
