@@ -1,0 +1,9 @@
+.navbarLogo{
+  width:1.5rem;
+}
+
+#navbarContainer{
+  background-color: white;
+  color: black;
+  justify-content: space-between;
+}

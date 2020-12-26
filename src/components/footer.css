@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: row;
   align-items : center;
+}
+
+.footerLogoTitleConteiner{
   padding-bottom: 15px;
 }
 
