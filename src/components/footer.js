@@ -1,7 +1,7 @@
 import React from 'react'
 import { IconButton } from '@material-ui/core';
-import EmailIcon from '@material-ui/icons/Email';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import logo from '../assets/img/logo192.png';
 import './footer.css'
@@ -23,9 +23,9 @@ class Footer extends React.Component {
             FIND US ON SOCIAL MEDIA
           </div>
           <div>
-            <IconButton href="mailto:borobudurdevelopment@gmail.com"><EmailIcon id = "footerIcon" /></IconButton >
-            <IconButton href="https://wa.me/6282246894576"><WhatsAppIcon id = "footerIcon"/></IconButton >
-            <IconButton href="http://instagram.com/_u/konsul_co"><InstagramIcon id = "footerIcon"/></IconButton >                  
+            <IconButton href="http://twitter.com/gamaisitb"><TwitterIcon id = "footerIcon"/></IconButton > 
+            <IconButton href="https://www.instagram.com/gamaisitb/"><InstagramIcon id = "footerIcon"/></IconButton >
+            <IconButton href="https://www.youtube.com/channel/UCBLrtiwP8vmvp36TI5YUCVg"><YouTubeIcon id = "footerIcon"/></IconButton >                  
           </div>
         </div>
       </div>

@@ -33,12 +33,12 @@ class Navbar extends React.Component {
           <Toolbar id = "navbarContainer">
             <div id = "rowContainer">
               <IconButton >
-                <img src= {logo} className = "navbarLogo"></img>
+                <img href="/" src= {logo} className = "navbarLogo"></img>
               </IconButton>
               <Typography variant="h6" > Gamais Academy</Typography>
             </div>
             <div>
-              <NavbarButton>Login</NavbarButton>
+              <NavbarButton href="/login">Login</NavbarButton>
             </div>
           </Toolbar>
         </AppBar>
