@@ -3,6 +3,10 @@
   src: local('Monserat'), url(../src/assets/font/Montserrat/Montserrat-Regular.ttf) format('woff');
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Monserat';
