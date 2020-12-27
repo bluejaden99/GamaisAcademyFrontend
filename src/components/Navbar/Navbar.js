@@ -4,10 +4,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import logo from '../assets/img/logo192.png';
+import logo from '../../assets/img/logo192.png';
 import { withStyles } from '@material-ui/core/styles';
-import './navbar.css'
-import './footer.css'
+import './Navbar.css'
+import '../Footer/Footer.css'
 
 const NavbarButton = withStyles({
   root: {

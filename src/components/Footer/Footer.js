@@ -3,8 +3,9 @@ import { IconButton } from '@material-ui/core';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import logo from '../assets/img/logo192.png';
-import './footer.css'
+import logo from '../../assets/img/logo192.png';
+import './Footer.css'
+
 class Footer extends React.Component {
   render(){
     return(
