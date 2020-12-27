@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.slick-arrow, .slick-next, .slick-prev, .slick-next::before, .slick-prev::before {
+  color: grey !important;
+  z-index: 999;
+  border-radius: 50%;
+}
+
+.slick-prev {
+  left: 3% !important;
+  z-index: 999;
+}
+.slick-next {
+  right: 3% !important;
+  z-index: 999;
+}
