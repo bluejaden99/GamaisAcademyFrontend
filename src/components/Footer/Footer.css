@@ -1,0 +1,59 @@
+#rowContainer{
+  display: flex;
+  flex-direction: row;
+  align-items : center;
+}
+
+.footerLogoTitleConteiner{
+  padding-bottom: 15px;
+}
+
+.footerContainer{
+  background-color:#1E99CC; 
+  color:white;
+  padding:30px 20px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 98%;
+}
+
+#footerIcon{
+  font-size:2rem;
+  color : white;
+}
+
+.footerLogo{
+  width: 2rem;
+}
+
+.footerTitle{
+  font-weight: 900;
+  font-size: 25px;
+  padding: 0 0 0 1rem;
+}
+
+.footerRightPart{
+  text-align: left;
+  padding-left: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .footerTitle{
+    font-size: 1rem;
+  }
+
+  .footerMark{
+    font-size: 10px;
+  }
+
+  #footerIcon{
+    width: 1.5rem;
+  }
+
+  .footerContainer{
+    font-size: 15px;
+  }
+}
