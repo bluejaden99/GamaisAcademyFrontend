@@ -10,3 +10,14 @@
 .coursesContainer {
 
 }
+
+.profileContainer {
+    display: flex;
+}
+
+.profPic {
+    height: 125px;
+    width: 125px;
+    border-radius: 100%;
+    margin-right: 15px;
+}

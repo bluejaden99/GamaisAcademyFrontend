@@ -1,7 +1,13 @@
 import React from 'react';
 import CoursesSection from '../../components/courses_section/CoursesSection'
 
-let dummy = [
+let dummyProfile = {
+    avatarUrl: "https://assets.rbl.ms/4140599/origin.jpg",
+    name: "Naufal Arfananda",
+    email: "akun@gmail.com"
+}
+
+let dummyCourses = [
     {
         image: "/logo512.png",
         title: "test1",
@@ -27,7 +33,7 @@ let dummy = [
 const Profile = () => {
     return (
     <div>
-        <CoursesSection courses={ dummy }/>
+        <CoursesSection profile={ dummyProfile } courses={ dummyCourses }/>
     </div>);
 }
 
