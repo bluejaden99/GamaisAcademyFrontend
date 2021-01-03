@@ -20,7 +20,7 @@ export const AuthContextProvider = (props) => {
     }, []);
 
     const login = async (email, password) => {
-        await axios.post('users/login', {
+        await axios.post('http://localhost:5000/users/login', {
             email, password
         }).then(res => {
             if (res.status == 200) {
@@ -35,7 +35,7 @@ export const AuthContextProvider = (props) => {
     }
 
     const logout = () => {
-        localStorage.removeItem('acadamyUser');
+        localStorage.removeItem('academyAdmin');
         // Manggil API logout
     }
 

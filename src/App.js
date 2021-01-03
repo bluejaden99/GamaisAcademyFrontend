@@ -29,6 +29,8 @@ const TempLogin = () => {
     console.log('loggin in.......');
     setLoading(true);
 
+
+
     try {
       await login('anandayulizar@gmail.com', 'password');
       history.push('/');
