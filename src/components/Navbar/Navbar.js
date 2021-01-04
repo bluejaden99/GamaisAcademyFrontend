@@ -1,17 +1,21 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Drawer from '@material-ui/core/Drawer';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+import {
+  AppBar,
+  Toolbar,
+  Drawer,
+  Typography,
+  Button,
+  IconButton,
+  useMediaQuery
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import logo from '../../assets/img/logo192.png';
 import { withStyles } from '@material-ui/core/styles';
-import './Navbar.css'
-import '../Footer/Footer.css'
+import './Navbar.css';
+import '../Footer/Footer.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 
 const NavbarButton = withStyles({
   root: {
@@ -31,13 +35,27 @@ const NavbarButton = withStyles({
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-
   const isMobile = useMediaQuery('(max-width:767px)');
-  console.log(isMobile);
+  const { currentUser, logout } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
+
+  const navbarItems = (
+    <div className="navbar-items">
+      {currentUser ?
+        <>
+          <Link className="navbar-link">Courses</Link>
+          <Link className="navbar-link">Profile</Link>
+          <NavbarButton onClick={logout}>Logout</NavbarButton>
+        </>
+        :
+        <NavbarButton href="/login">Login</NavbarButton>
+      }
+
+    </div>
+  );
 
   return (
     <div>
@@ -58,7 +76,7 @@ const Navbar = () => {
             </IconButton>
             :
             <div>
-              <NavbarButton href="/login">Login</NavbarButton>
+              {navbarItems}
             </div>
           }
 
@@ -67,7 +85,7 @@ const Navbar = () => {
         </Toolbar>
       </AppBar>
       <Drawer anchor='right' open={mobileOpen} onClose={handleDrawerToggle}>
-        <p>Mobile Navbar Content</p>
+        {navbarItems}
       </Drawer>
     </div>
   )

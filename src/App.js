@@ -59,13 +59,14 @@ const TempLogin = () => {
 function App() {
   return (
     <AuthContextProvider>
-      <Navbar />
-      <div className="App">
-        <BrowserRouter>
+
+
+      <BrowserRouter>
+        <Navbar />
+        <div className="App">
           <ScrollToTop>
             <Switch>
               <PrivateRoute exact path="/" component={TempLanding} />
-
               {/* <PrivateRoute exact path="/enrollment" component={Enrollment}/> */}
               {/* <PrivateRoute exact path="/course" component={Course}/> */}
               {/* <PrivateRoute exact path="/profile" component={Profile}/> */}
@@ -73,9 +74,9 @@ function App() {
               {/* <Route exact path="/register" component={Register}/> */}
             </Switch>
           </ScrollToTop>
-        </BrowserRouter>
-      </div>
-      <Footer />
+        </div>
+        <Footer />
+      </BrowserRouter>
     </AuthContextProvider>
   );
 }

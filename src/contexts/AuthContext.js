@@ -35,13 +35,15 @@ export const AuthContextProvider = (props) => {
     }
 
     const logout = () => {
-        localStorage.removeItem('academyAdmin');
+        localStorage.removeItem('academyUser');
+        window.location.reload();
         // Manggil API logout
     }
 
     const value = {
         currentUser,
-        login
+        login,
+        logout
     }
 
     return (

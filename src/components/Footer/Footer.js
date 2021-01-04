@@ -23,7 +23,7 @@ class Footer extends React.Component {
           <div >
             FIND US ON SOCIAL MEDIA
           </div>
-          <div>
+          <div className="socmed-container">
             <IconButton href="http://twitter.com/gamaisitb"><TwitterIcon id="footerIcon" /></IconButton >
             <IconButton href="https://www.instagram.com/gamaisitb/"><InstagramIcon id="footerIcon" /></IconButton >
             <IconButton href="https://www.youtube.com/channel/UCBLrtiwP8vmvp36TI5YUCVg"><YouTubeIcon id="footerIcon" /></IconButton >

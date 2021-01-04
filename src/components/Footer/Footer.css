@@ -62,4 +62,9 @@
     justify-content: center;
     align-items: center;
   }
+
+  .socmed-container {
+    display: flex;
+    justify-content: center;
+  }
 }
