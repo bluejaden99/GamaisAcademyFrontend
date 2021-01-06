@@ -1,0 +1,10 @@
+.pdf {
+    width: 360px;
+    height: 720px;
+}
+@media screen and (max-width: 992px) {
+    .pdf {
+        width: 160px;
+        height: 320px;
+    }
+}
