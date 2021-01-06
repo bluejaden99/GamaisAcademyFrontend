@@ -9,9 +9,21 @@ const Course = () => {
         <div>
             <Navbar />
             <div style={{
-                padding: 20
+                padding: 40,
+                textAlign: 'left'
             }}>
                 <VideoPlayer />
+                <div style={{
+                    fontWeight: 'bold'
+                }}>
+                    Judul course
+                </div>
+                <div>
+                    Incididunt esse consectetur pariatur exercitation labore ad sit ad in veniam. Non officia veniam proident minim.
+                </div>
+                <div>
+                    Nama Pengajar
+                </div>
                 <PDFViewer />
             </div>
             <Footer />
