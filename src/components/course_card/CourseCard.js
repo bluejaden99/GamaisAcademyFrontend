@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CourseCard.module.css';
 
-const CourseCard = ({ image, title, description }) => {
+const CourseCard = ({ image, title, description, courseUrl }) => {
     return (
         <div className={ styles.card }>
             <div className={ styles.cardImgCont }>
@@ -9,7 +9,7 @@ const CourseCard = ({ image, title, description }) => {
             </div>
             <p className={ styles.cardTitle }>{ title }</p>
             <p className={ styles.cardDesc }>{ description }</p>
-            <button className={ styles.cardButton }>Watch</button>
+            <a href={ courseUrl }><button className={ styles.cardButton }>Watch</button></a>
         </div>
     );
 }

@@ -7,8 +7,7 @@ function myArrow({ type, onClick, isEdge }) {
     const pointer = type === consts.PREV ? (
         <svg
           transform="rotate(180)"
-          width={64}
-          height={90}
+          width={35}
           viewBox="0 0 64 90"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -20,8 +19,7 @@ function myArrow({ type, onClick, isEdge }) {
         </svg>
       ) :
       (    <svg
-        width={64}
-        height={90}
+        width={35}
         viewBox="0 0 64 90"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -62,12 +60,12 @@ const CoursesSection = ({ profile, courses }) => {
                 pagination={ false }
                 renderArrow={ myArrow }
                 breakPoints={[
-        { width: 1, itemsToShow: 1 },
+        { width: 1, itemsToShow: 1, itemsToScroll: 1 },
         { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
-        { width: 850, itemsToShow: 3 },
-        { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
-        { width: 1450, itemsToShow: 5 },
-        { width: 1750, itemsToShow: 6 },
+        { width: 850, itemsToShow: 3, itemsToScroll: 3 },
+        { width: 1150, itemsToShow: 4, itemsToScroll: 4 },
+        { width: 1450, itemsToShow: 5, itemsToScroll: 5 },
+        { width: 1750, itemsToShow: 6, itemsToScroll: 6 },
       ]}>
                     {
                         courses.map((course) => {
