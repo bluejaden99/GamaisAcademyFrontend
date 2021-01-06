@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { firebase } from '../config/env';
-import QierPlayer from 'qier-player';
+import './VideoPlayer.css';
 
 const VideoPlayer = ({ videoName }) => {
     const [videoUrl, setVideoUrl] = useState('');
@@ -18,7 +17,7 @@ const VideoPlayer = ({ videoName }) => {
     }, []);
     return (  
         <div>
-            <iframe width="100%" height="100%" src="https://drive.google.com/file/d/1IvOgWfcu6O0SADs4J9UJaZtmMu0St57-/preview"
+            <iframe className="video" src={videoUrl}
             allowfullscreen="allowfullscreen"
             mozallowfullscreen="mozallowfullscreen" 
             msallowfullscreen="msallowfullscreen" 

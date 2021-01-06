@@ -1,10 +1,18 @@
 import React from 'react';
-import VideoPlayer from '../../components/VideoPlayer';
+import Footer from '../../components/Footer/Footer';
+import Navbar from '../../components/Navbar/Navbar';
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 
 const Course = () => {
     return (  
         <div>
-            <VideoPlayer videoName="PAT_18_11_2020.mp4"/>
+            <Navbar />
+            <div style={{
+                padding: 20
+            }}>
+                <VideoPlayer />
+            </div>
+            <Footer />
         </div>
     );
 }
