@@ -23,6 +23,7 @@ const PDFViewer = ({ documentName }) => {
     const onDocumentLoadSuccess = ({ numPages }) => {
         setNumPages(numPages);
     }
+    
     return (  
         <div>
             <iframe src={documentUrl+"#FitH"} width="800px" height="1500px"  />
