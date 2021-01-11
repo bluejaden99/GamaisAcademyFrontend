@@ -1,0 +1,43 @@
+#LCItem{
+    width: 429px;
+    background-color: white;
+    margin: 42px;
+    border: solid 1px lightgray;
+    border-radius: 0px;
+    text-align: justify;
+}
+
+@media (max-width: 576px) { 
+    #LCItem{
+        min-width: 65vw;
+    }
+}
+
+#LCIThumbImage{
+    width: 100%;
+}
+
+#LCIDescription{
+    background-color: antiquewhite;
+    padding: 10%;
+}
+
+#LCITitle{
+    background-color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+}
+
+.more-btn{
+    font-size: 0.9em;
+    background-color: salmon;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 300;
+    color: white;
+}
+
+.more-btn, .more-btn:hover, .more-btn:active{
+	padding: 0.2em 1em;
+}

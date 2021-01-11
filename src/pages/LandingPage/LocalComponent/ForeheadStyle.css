@@ -1,0 +1,23 @@
+#jumbotron{
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    background-color: #158147;
+    color: white;
+}
+
+#jumbotron .container .row #btn-register{
+    background-color: #E3B448;
+    color: black;
+}
+
+.bannerImage{
+    max-width: 80vw ;
+}
+
+.shadowedContent{
+    box-shadow: 0px 0px 10px #2b2b2b;
+}
+
+.shadowedContent:hover{
+    box-shadow: 0px 0px 10px #3e3e3e;
+}

@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Route, Switch} from 'react-router';
 import {BrowserRouter} from 'react-router-dom';
+import LandingPage from './pages/LandingPage/LandingPage'
 import AdminListUser from '../src/pages/AdminListUser/AdminListUser'
 // import VideoPlayer from './components/VideoPlayer';
 // import PDFViewer from './components/PDFViewer';
@@ -11,7 +12,7 @@ function App() {
     <div className = "App">
       <BrowserRouter>
         <Switch>
-          {/* <Route exact path="/" component={LandingPage}/> */}
+          <Route exact path="/" component={LandingPage}/>
           {/* <Route exact path="/login" component={Login}/> */}
           {/* <Route exact path="/register" component={Register}/> */}
           {/* <Route exact path="/enrollment" component={Enrollment}/> */}
