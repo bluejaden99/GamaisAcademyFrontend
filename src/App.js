@@ -16,7 +16,7 @@ function App() {
           {/* <Route exact path="/login" component={Login}/> */}
           {/* <Route exact path="/register" component={Register}/> */}
           {/* <Route exact path="/enrollment" component={Enrollment}/> */}
-          <Route exact path="/course" component={Course}/>
+          <Route exact path="/course/:id" component={Course}/>
           {/* <Route exact path="/profile" component={Profile}/> */}
           <Route exact path="/admin/user" component={AdminListUser}/>
           {/* <Route exact path="/admin/course" component={AdminListCourse}/> */}

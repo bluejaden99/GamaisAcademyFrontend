@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/Navbar';
 import PDFViewer from '../../components/PDFViewer/PDFViewer';
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 
 const Course = () => {
+    let { id } = useParams();
+    const [course, setCourse] = useState('');
+
+    useEffect(() => {
+        
+        const url = '/courses/' + id;
+
+        fetch(url)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                setCourse(res.data.course[0]);
+            });
+    }, []);
+
     return (  
         <div>
             <Navbar />
@@ -12,19 +28,19 @@ const Course = () => {
                 padding: 40,
                 textAlign: 'left'
             }}>
-                <VideoPlayer />
+                <VideoPlayer link={course.video}/>
                 <div style={{
                     fontWeight: 'bold'
                 }}>
-                    Judul course
+                    {course.judul}
                 </div>
                 <div>
-                    Incididunt esse consectetur pariatur exercitation labore ad sit ad in veniam. Non officia veniam proident minim.
+                    {course.desc}
                 </div>
                 <div>
-                    Nama Pengajar
+                    {course.pengajar}
                 </div>
-                <PDFViewer />
+                <PDFViewer link={course.modul}/>
             </div>
             <Footer />
         </div>
