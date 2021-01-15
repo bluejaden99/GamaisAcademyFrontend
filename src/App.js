@@ -1,26 +1,17 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import {Route, Switch} from 'react-router';
-import {BrowserRouter} from 'react-router-dom';
-import AdminListUser from '../src/pages/AdminListUser/AdminListUser'
-// import VideoPlayer from './components/VideoPlayer';
-// import PDFViewer from './components/PDFViewer';
+import "bootstrap/dist/css/bootstrap.css";
+import {Row, Col} from 'react-bootstrap';
+import LeftSide from "./components/LeftSide";
+import RightSide from "./components/RightSide";
 
 function App() {
   return (
-    <div className = "App">
-      <BrowserRouter>
-        <Switch>
-          {/* <Route exact path="/" component={LandingPage}/> */}
-          {/* <Route exact path="/login" component={Login}/> */}
-          {/* <Route exact path="/register" component={Register}/> */}
-          {/* <Route exact path="/enrollment" component={Enrollment}/> */}
-          {/* <Route exact path="/course" component={Course}/> */}
-          {/* <Route exact path="/profile" component={Profile}/> */}
-          <Route exact path="/admin/user" component={AdminListUser}/>
-          {/* <Route exact path="/admin/course" component={AdminListCourse}/> */}
-        </Switch>
-      </BrowserRouter>
+    <div className="App">
+      <Row className="landing">
+        <Col ><LeftSide /></Col>
+        <Col ><RightSide /></Col>
+      </Row>
     </div>
   );
 }
