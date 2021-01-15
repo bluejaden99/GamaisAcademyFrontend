@@ -1,0 +1,55 @@
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	margin: 0 auto;
+    float: none; 
+    margin-top: 15%;
+    margin-bottom: 5%;
+    margin-right: 10%;
+    margin-left: 45%;
+}
+
+.form-group {
+    text-align: justify;
+  	font-family: "Montserrat";
+  	font-size: 14px;
+  	margin-left: 15%; 
+  	margin-right: 15%;	
+  	margin-bottom: 5px;
+}
+
+.card-body{
+	font-family: "Montserrat";
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 0;
+}
+
+.card-body-2{
+	font-family: "Montserrat";
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 0;
+}
+
+.card button {
+ 	background-color: #E3B448; 
+ 	border: none;
+	color: white;
+	text-align: center;
+	display: inline-block;
+	font-size: 14px;
+	font-family: "Montserrat";
+	font-weight: bold;
+	width: 35%;
+	height: 25px;
+	margin-left: 50%;
+	margin-bottom: 15px;
+}
+
+a {
+  color: #E3B448;
+}
+a:hover {
+   color: #E3B448
+}
+
