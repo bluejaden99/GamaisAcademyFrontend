@@ -16,7 +16,7 @@ function LandingCarousel() {
     return (
         <>
             <div>
-                <div>
+                <div className="container">
                     <h1 style={{textAlign:"left"}}>Topik</h1>
                 </div>
 
