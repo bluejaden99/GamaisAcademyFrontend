@@ -2,6 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import CoursesSection from '../../components/courses_section/CoursesSection'
 
+const axiosCall = axios.create();
+
+axiosCall.interceptors.request.use(function (config) {
+    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDAwNDY0OTdhZTI2MTUyNTg1Yzg2YiIsImlhdCI6MTYxMDcyNzEyNiwiZXhwIjoxNjE4NTAzMTI2fQ.7bMj2ov9vfre4rcBpvAtq9BXyTNO4TLP4Y2yDru1Dbo';
+    config.headers.Authorization = accessToken ? `Bearer ${accessToken}` : '';
+    return config;
+})
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -9,15 +17,9 @@ class Profile extends React.Component {
       userProfile: {},
       userCourses: []
     }
+  }
 
-    const axiosCall = axios.create();
-
-    axiosCall.interceptors.request.use(function (config) {
-        const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDAwNDY0OTdhZTI2MTUyNTg1Yzg2YiIsImlhdCI6MTYxMDcyNzEyNiwiZXhwIjoxNjE4NTAzMTI2fQ.7bMj2ov9vfre4rcBpvAtq9BXyTNO4TLP4Y2yDru1Dbo';
-        config.headers.Authorization = accessToken ? `Bearer ${accessToken}` : '';
-        return config;
-    })
-
+  componentDidMount() {
     // axiosCall.get("http://localhost:5000/courses", {
     //     "email": "email@gmail.com",
     //     "password": "passwordaja"
@@ -37,6 +39,7 @@ class Profile extends React.Component {
         })
         .catch(() => console.log("error"));
   }
+
   render() {
     return (
     <div>
