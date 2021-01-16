@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './../assets/circle-cropped.png';
+import logo from './../assets/img/circle-cropped.png';
 import "./LeftSide.css";
 
 function LeftSide() {
