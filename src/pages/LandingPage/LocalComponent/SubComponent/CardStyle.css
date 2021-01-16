@@ -1,0 +1,122 @@
+#Card{
+    max-width: 240px;
+    border: 1px grey solid;
+    border-radius: 3px;
+}
+
+#CardThumbnail{
+    width: 100%;
+}
+
+
+/* HOLDER */
+#TitleHolder{
+    /* background: salmon; */
+
+    padding: 0 32px;
+    margin-top: 35px;
+    height: 3.5em;
+    display: flex;
+    align-items: flex-end;
+}
+
+#DescriptionHolder{
+    /* background-color: coral; */
+
+    margin-top: -15px;
+    padding: 0 32px;
+    height: 6em;
+    display: flex;
+    align-items: flex-start;
+}
+
+#ButtonHolder{
+    /* background-color: aqua; */
+
+    margin: 15px 0 12px 0;
+    padding: 0px 18px;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+
+
+/* COMPONENT */
+#CardTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: left;
+
+}
+
+#CardDescription {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    line-height: 1.4;
+
+}
+
+.more-btn{
+
+    font-size: 0.8em;
+    background-color: salmon;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: white;
+}
+
+
+
+
+/* #LCItem{
+    width: 429px;
+    background-color: white;
+    margin: 42px;
+    border: solid 1px lightgray;
+    border-radius: 0px;
+    text-align: justify;
+}
+
+@media (max-width: 576px) { 
+    #LCItem{
+        min-width: 65vw;
+    }
+}
+
+#LCIThumbImage{
+    width: 100%;
+}
+
+#LCIDescription{
+    background-color: antiquewhite;
+    padding: 10%;
+}
+
+#LCITitle{
+    background-color: #fff;
+    height: 3em;
+    display: flex;
+    vertical-align: text-bottom !important;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+}
+
+.more-btn{
+    font-size: 0.9em;
+    background-color: salmon;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 300;
+    color: white;
+}
+
+.more-btn, .more-btn:hover, .more-btn:active{
+	padding: 0.2em 1em;
+} */

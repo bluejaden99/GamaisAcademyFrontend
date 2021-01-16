@@ -3,7 +3,7 @@ import './ButtonStyle.css'
 
 const RegisterButton = (props) => {
     return(
-    <button type="button" id="btn-register" className="btn">{props.text}</button>
+    <a href="/login" id="btn-register" className="btn">{props.text}</a>
     )
 }
 

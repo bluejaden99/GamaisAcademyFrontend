@@ -1,8 +1,11 @@
-import React from 'react'
-import Carousel from 'react-elastic-carousel'
-import LCItem from './SubComponent/LandingCarouselItem'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Carousel from 'react-elastic-carousel';
+import Card from './SubComponent/Card';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './LCStyle.css';
+
+
 
 const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -11,25 +14,102 @@ const breakPoints = [
     { width: 1200, itemsToShow: 4 },
   ];
 
+
+
+
 function LandingCarousel() {
-    const thumbLink = "https://upload.wikimedia.org/wikipedia/commons/e/e2/OrteliusWorldMap1570.jpg"
+    const thumbLink = "https://upload.wikimedia.org/wikipedia/commons/e/e2/OrteliusWorldMap1570.jpg";
+    // const coursesEndpoint = "http://127.0.0.1:5000/courses";
+
+    // State(s)
+    const [courses, setCourses] = useState([]);
+
+
+    // Run ONCE
+    useEffect(() => {
+        axios.get("http://127.0.0.1:5000/courses").then( res => {
+            setCourses(res.data.data.course);
+        }).catch(e => console.log(e))
+    }, [])
+
+    // Function(s)
+    const getCards = () => {
+        const longText = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc congue nibh augue, ut commodo libero venenatis ut. Vivamus faucibus lorem non laoreet volutpat. Aenean vitae est dignissim, vehicula nisi posuere."
+        return(
+            courses.map(course => (
+                <Card key={Math.random(1000) * 1000} course={course} imgLink={thumbLink} longText={longText}/>
+            ))
+        )
+    }
+
+
+
+    // Component(s)
+    const Courses = (
+        <>
+            <Carousel breakPoints={breakPoints}>
+                
+                {courses.length>0 ? 
+                getCards()
+                :
+                <></>
+                }
+                {courses.length>0 ? 
+                getCards()
+                :
+                <></>
+                }
+                {courses.length>0 ? 
+                getCards()
+                :
+                <></>
+                }
+                {courses.length>0 ? 
+                getCards()
+                :
+                <></>
+                }
+                {courses.length>0 ? 
+                getCards()
+                :
+                <></>
+                }
+            </Carousel>
+        </>
+    )
+
+    const NoCourses = (
+        <></>
+    )
+
+
+
+
+    // const removeHandler = () => {
+    //     setCourses([])
+    // }
+
+
+
+    useEffect(() => {
+        console.log(courses)
+        console.log("BERUBAH!")
+    }, [courses])
+
+
     return (
         <>
             <div>
-                <div className="container">
-                    <h1 style={{textAlign:"left"}}>Topik</h1>
-                </div>
+                {/* <button onClick={removeHandler}>Remove Content</button> */}
 
+                <div className="container">
+                    <h1 id="CarouselTitle">Topik</h1>
+                </div>
+                {console.log("LOAD!!")}
                 <div className="App">
-                    <Carousel breakPoints={breakPoints}>
-                        <LCItem title="Sed ut perspiciatis" subTitle="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." imgLink={thumbLink}/>
-                        <LCItem title="Lorem ipsum dolor" subTitle="Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore." imgLink={thumbLink}/>
-                        <LCItem title="Nemo enim ipsam" subTitle="Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt." imgLink={thumbLink}/>
-                        <LCItem title="Lorem ipsum dolor" subTitle="Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore." imgLink={thumbLink}/>
-                        <LCItem title="Sed ut perspiciatis" subTitle="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia." imgLink={thumbLink}/>
-                        <LCItem title="Nemo enim ipsam" subTitle="Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt." imgLink={thumbLink}/>
-                        
-                    </Carousel>
+                    {
+                        (courses.length > 0) ? Courses : NoCourses
+                    }
                 </div>
             </div>
         </>
