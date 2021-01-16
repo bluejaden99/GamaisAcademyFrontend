@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { useAuth } from '../contexts/AuthContext';
+import { useHistory } from 'react-router-dom';
 import "./RightSide.css";
 
 export default function RightSide() {
+  const { login, currentUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
+  async function handleSubmit(event) {
+    try {
+      await login(email, password);
+      history.push('/');
+    } catch {
+      console.log('fail to login');
+    }
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
 
   return (
   <div class="card">
@@ -46,7 +51,7 @@ export default function RightSide() {
         </Form.Group>
       </Form>
       <br/>
-    <Button type="submit">LOGIN</Button>
+    <button type="submit" onClick={handleSubmit}>LOGIN</button>
   </div>
   );
 }
