@@ -18,7 +18,7 @@ class Profile extends React.Component {
         return config;
     })
 
-    // axiosCall.post("http://localhost:5000/users/login", {
+    // axiosCall.get("http://localhost:5000/courses", {
     //     "email": "email@gmail.com",
     //     "password": "passwordaja"
     // }).then(res => {
@@ -28,13 +28,11 @@ class Profile extends React.Component {
 
     axiosCall.get("http://localhost:5000/users/me")
         .then(res => {
-            console.log(res);
             let tempProfile = {};
             tempProfile.avatarUrl = res.data.data.user.photo;
             tempProfile.name = res.data.data.user.nama;
             tempProfile.email = res.data.data.user.email;
             this.setState({userProfile: tempProfile});
-            console.log(this.state.userProfile);
             this.setState({userCourses: res.data.data.user.courses});
         })
         .catch(() => console.log("error"));
@@ -42,7 +40,6 @@ class Profile extends React.Component {
   render() {
     return (
     <div>
-        { console.log(`testestests ${ this.state.userProfile.name }`) }
         <CoursesSection profile={ this.state.userProfile } courses={ this.state.userCourses }/>
     </div>
   );
