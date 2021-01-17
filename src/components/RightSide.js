@@ -21,37 +21,43 @@ export default function RightSide() {
 
 
   return (
-  <div class="card">
-    <br/>
-    <br/>
-    <br/>
-      <div class="card-body">LOGIN</div>
-      <div class="card-body-2">
-        Belum punya akun? <a href="">Register</a>
-      </div>
+  <div class="rightSideContainer">
+    <div class="card">
       <br/>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <a href="">Forget Password?</a>
-        </Form.Group>
-      </Form>
       <br/>
-    <button type="submit" onClick={handleSubmit}>LOGIN</button>
+      <br/>
+        <div class="card-body">LOGIN</div>
+        <br/>
+        <div class="card-body-2">
+          Belum punya akun? <a href="">Register</a>
+        </div>
+        <br/>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group size="lg" controlId="email">
+            <Form.Label>Email</Form.Label>
+            <br/>
+            <Form.Control
+              autoFocus
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group size="lg" controlId="password">
+            <Form.Label>Password</Form.Label>
+            <br/>
+            <Form.Control
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <br/>
+            <a href="">Forget Password?</a>
+          </Form.Group>
+        </Form>
+        <br/>
+      <button type="submit" onClick={handleSubmit}>LOGIN</button>
+    </div>
   </div>
   );
 }

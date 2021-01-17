@@ -1,5 +1,5 @@
 import React from 'react';
-// import './App.css';
+import './Login.css';
 // import "bootstrap/dist/css/bootstrap.css";
 import {Row, Col} from 'react-bootstrap';
 import LeftSide from '../components/LeftSide';
