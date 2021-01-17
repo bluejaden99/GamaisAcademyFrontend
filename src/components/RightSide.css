@@ -54,9 +54,20 @@ a:hover {
 	height: 100%;
 }
 
+.alert.alert-danger{
+	background-color: red;
+	margin: 0 10% 5% 10%;
+	height: 30px;
+	padding: 5px;
+}
+
 @media screen and (max-width: 767px) {
   .rightSideContainer{
 		width: 100vw;
+	}
+
+	.alert.alert-danger{
+		font-size: small;
 	}
 }
 
