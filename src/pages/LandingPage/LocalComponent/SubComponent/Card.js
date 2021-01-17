@@ -4,7 +4,7 @@ import './CardStyle.css';
 const Card = function ({ course, imgLink, longText }) {
     // Javascript Here
     const getTitle = () => {
-        const rawTitle = longText;
+        const rawTitle = course.judul;
         const maxChar = 30;
         if (rawTitle.length > maxChar){
             return rawTitle.substring(0, maxChar-9) + " ... " + rawTitle.substring(rawTitle.length-4, rawTitle.length)
@@ -12,7 +12,7 @@ const Card = function ({ course, imgLink, longText }) {
         return rawTitle
     }
     const getDescription = () => {
-        const rawDesc = longText;
+        const rawDesc = course.desc;
         const maxChar = 100;
         if (rawDesc.length > maxChar){
             return rawDesc.substring(0, maxChar-3) + "..."
@@ -32,7 +32,7 @@ const Card = function ({ course, imgLink, longText }) {
                 <div id="TitleHolder">
                     <h4 id="CardTitle">{Title}</h4>
                 </div>
-                <br/>
+                <hr id="card-line"></hr>
                 <div id="DescriptionHolder">
                     <h5 id="CardDescription">{Description}</h5>
                 </div>

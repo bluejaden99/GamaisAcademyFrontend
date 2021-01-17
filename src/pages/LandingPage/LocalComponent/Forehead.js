@@ -5,24 +5,37 @@ import bannerImage from '../../../assets/img/Banner.png'
 import RegisterButton from './SubComponent/RegisterButton'
 
 function Forehead() {
-    const regBtnText = "Register";
+
+    // {EDIT LATER} Login Conditional
+    const isLoggedIn = false;
+
     return (
         <>
            {/* Jumbotron */}
            <div className="jumbotron jumbotron-fluid" id="jumbotron">
                 <div className="container">
                     <div className="row">
+
                         <div className = "col-lg-7" style={{textAlign:"left", fontWeight:"bold", paddingBottom:"25px"}}>
+                            
+                            {/* TITLE */}
                             <h1 id="title" className="display- 4">Gamais Academy</h1>
+                            
+                            {/* SUBTITLE */}
                             <p id="subtitle" className="lead">Platform pembelajaran online materi-materi keislaman dengan kurikulum yang terstruktur, runtut, dan terpercaya.</p>
-                            <RegisterButton text='Register'/>
+                            
+                            {/* REGISTER BUTTON */}
+                            {isLoggedIn ? <></> : <RegisterButton text='Register'/>}
+                            
                         </div>
-                        {/* <div className="col-md-1"></div> */}
+
                         <div id="banner-area" className="col-lg-5">
+
+                            {/* BANNER IMAGE */}
                             <img className="bannerImage shadowedContent" src={bannerImage} alt="Gamais Academy Banner"></img>
-                            {/* <div className="shadowedContent">
-                            </div> */}
+                        
                         </div>
+
                     </div>
                 </div>
             </div> 

@@ -1,9 +1,9 @@
 import React from "react";
 import './ButtonStyle.css'
 
-const RegisterButton = (props) => {
+const RegisterButton = ({ text }) => {
     return(
-    <a href="/login" id="btn-register" className="btn">{props.text}</a>
+    <a href="/register" id="btn-register" className="btn">{text}</a>
     )
 }
 
