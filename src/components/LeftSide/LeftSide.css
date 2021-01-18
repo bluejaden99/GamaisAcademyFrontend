@@ -1,0 +1,29 @@
+img {
+ 	padding: 5px;
+	width: 30%;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.background-text {
+	font-family: "Monserat";
+	font-weight: bold;
+	font-size: 60px;
+}
+
+.leftSideContainer{
+	background-color: #3A6B35;
+	width: 65vw;
+	height: 100%
+}
+
+@media screen and (max-width: 767px) {
+  .leftSideContainer{
+		width: 100vw;
+	}
+
+	.background-text {
+		font-size: 1.6rem;
+	}
+}

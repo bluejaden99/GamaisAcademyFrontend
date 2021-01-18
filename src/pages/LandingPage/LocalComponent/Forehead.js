@@ -3,11 +3,12 @@ import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './ForeheadStyle.css'
 import bannerImage from '../../../assets/img/Banner.png'
 import RegisterButton from './SubComponent/RegisterButton'
+import { useAuth } from '../../../contexts/AuthContext';
 
 function Forehead() {
 
-    // {EDIT LATER} Login Conditional
-    const isLoggedIn = false;
+    //  Login Conditional
+    const { currentUser } = useAuth();
 
     return (
         <>
@@ -25,7 +26,7 @@ function Forehead() {
                             <p id="subtitle" className="lead">Platform pembelajaran online materi-materi keislaman dengan kurikulum yang terstruktur, runtut, dan terpercaya.</p>
                             
                             {/* REGISTER BUTTON */}
-                            {isLoggedIn ? <></> : <RegisterButton text='Register'/>}
+                            {currentUser ? <></> : <RegisterButton text='Register'/>}
                             
                         </div>
 
