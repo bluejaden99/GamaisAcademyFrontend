@@ -4,22 +4,23 @@ import Footer from '../../components/Footer/Footer';
 import './AdminListUser.css'
 
 class AdminListUsers extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props){
+    super(props);    
     this.state = {
-
+      
     }
   }
 
-
+  
   render() {
-    return (
+    return(
       <div>
-        <div className="bodyContainer">
+        <Navbar/>
+        <div className = "bodyContainer">
           {/* <VideoPlayer videoName="PAT_18_11_2020.mp4"/> */}
-          {/* <PDFViewer documentName="probstat-book.pdf"/> */}
+        {/* <PDFViewer documentName="probstat-book.pdf"/> */}
         </div>
-        {/* <Footer /> */}
+        <Footer/>
       </div>
     );
   }

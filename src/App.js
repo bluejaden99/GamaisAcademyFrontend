@@ -5,57 +5,8 @@ import Footer from './components/Footer/Footer';
 import { AuthContextProvider, useAuth } from './contexts/AuthContext';
 import ScrollToTop from './components/ScrollToTop';
 import React, { useState } from 'react';
-import Login from './pages/Login'
-
-// import VideoPlayer from './components/VideoPlayer';
-// import PDFViewer from './components/PDFViewer';
-
-const TempLanding = () => {
-  // Temporary Landing Page for routing purposes
-  return (
-    <div>
-      <h1>Temporary Landing Page</h1>
-    </div>
-  );
-}
-
-// const TempLogin = () => {
-//   // Temporary login fo routing purposes,
-//   // will integrate from Nabilah's login page soon
-//   const { login, currentUser } = useAuth();
-//   const [loading, setLoading] = useState(false);
-//   const history = useHistory();
-
-//   const handleLogin = async () => {
-//     console.log('loggin in.......');
-//     setLoading(true);
-
-
-
-//     try {
-//       await login('anandayulizar@gmail.com', 'password');
-//       history.push('/');
-//     } catch {
-//       console.log('fail to login');
-//     }
-
-//     setLoading(false);
-//   }
-
-
-//   return (
-//     <div>
-//       {currentUser ?
-//         <Redirect to="/" />
-//         : <>
-//           <h1>Temporary Login Page</h1>
-//           <button onClick={handleLogin}>login</button>
-//           {loading ? <p>Loading...</p> : ''}
-//         </>
-//       }
-//     </div>
-//   )
-// }
+import Login from './pages/Login/Login';
+import LandingPage from './pages/LandingPage/LandingPage'
 
 function App() {
   return (
@@ -65,7 +16,7 @@ function App() {
         <div className="App">
           <ScrollToTop>
             <Switch>
-              <PrivateRoute exact path="/" component={TempLanding} />
+              <Route exact path="/" component={LandingPage} />
               {/* <PrivateRoute exact path="/enrollment" component={Enrollment}/> */}
               {/* <PrivateRoute exact path="/course" component={Course}/> */}
               {/* <PrivateRoute exact path="/profile" component={Profile}/> */}

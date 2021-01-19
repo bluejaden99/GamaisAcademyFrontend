@@ -2,9 +2,9 @@ import React from 'react';
 import './Login.css';
 // import "bootstrap/dist/css/bootstrap.css";
 import {Row, Col} from 'react-bootstrap';
-import LeftSide from '../components/LeftSide';
-import RightSide from '../components/RightSide';
-import { useAuth } from '../contexts/AuthContext';
+import LeftSide from '../../components/LeftSide/LeftSide';
+import RightSide from '../../components/RightSide/RightSide';
+import { useAuth } from '../../contexts/AuthContext';
 import { Redirect } from 'react-router-dom';
 
 
@@ -18,10 +18,10 @@ function Login() {
       {currentUser ?
         <Redirect to="/" />
         : <>
-        <Row className="landing">
-         <Col ><LeftSide /></Col>
-         <Col ><RightSide /></Col>
-       </Row>
+        <div className="landing">
+         <div ><LeftSide /></div>
+         <div ><RightSide /></div>
+       </div>
         </>
       }
     </div>

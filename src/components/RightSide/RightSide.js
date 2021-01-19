@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Alert } from "react-bootstrap";
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import "./RightSide.css";
 
