@@ -1,0 +1,71 @@
+#jumbotron{
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    background-color: #3A6B35;
+    color: white;
+}
+
+#jumbotron .container .row #title{
+    font-size: 60px;
+    font-weight: 800;
+    margin-bottom: 0.3em;
+}
+
+#jumbotron .container .row #subtitle{
+    font-size: 22px;
+    font-weight: 400;
+}
+
+#jumbotron .container .row #btn-register{
+    font-size: 18px;
+    font-weight: 900;
+    background-color: #E3B448;
+    color: white;
+}
+
+#banner-area{
+    /* background-color: salmon; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bannerImage{
+    width: 100%;
+    max-width: 60vw;
+}
+
+
+@media (max-width: 575.98px) { 
+    #jumbotron .container .row #title{
+        font-size: 44px;
+    }
+    
+    #jumbotron .container .row #subtitle{
+        font-size: 18px;
+    }
+    
+    #jumbotron .container .row #btn-register{
+        font-size: 13px;
+    }        
+
+    .bannerImage{
+        width: 100%;
+        max-width: 80vw;
+    }
+}
+
+@media (max-width: 768px) { 
+    #jumbotron .container .row #title{
+        font-size: 52px;
+    }
+
+    #jumbotron .container .row #subtitle{
+        font-size: 20px;
+    }
+
+    #jumbotron .container .row #btn-register{
+        font-size: 14px;
+    }        
+
+}

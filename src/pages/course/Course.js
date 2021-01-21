@@ -23,7 +23,6 @@ const Course = () => {
 
     return (  
         <div>
-            <Navbar />
             <div style={{
                 padding: 40,
                 textAlign: 'left'
@@ -42,7 +41,6 @@ const Course = () => {
                 </div>
                 <PDFViewer link={course.modul}/>
             </div>
-            <Footer />
         </div>
     );
 }
