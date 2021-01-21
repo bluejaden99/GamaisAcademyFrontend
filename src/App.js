@@ -7,7 +7,8 @@ import ScrollToTop from './components/ScrollToTop';
 import React, { useState } from 'react';
 import Login from './pages/Login/Login';
 import LandingPage from './pages/LandingPage/LandingPage';
-import Register from './pages/Register/Register'
+import Register from './pages/Register/Register';
+import Profile from './pages/profile/Profile';
 
 function App() {
   return (
