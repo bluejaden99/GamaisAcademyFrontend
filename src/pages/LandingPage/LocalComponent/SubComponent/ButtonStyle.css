@@ -1,0 +1,19 @@
+#btn-register{
+    font-size: 18px;
+    font-weight: 900;
+    background-color: #E3B448;
+    color: white;
+}
+
+
+@media (max-width: 575.98px){
+    #btn-register{
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px){
+    #btn-register{
+        font-size: 14px;
+    }
+}
