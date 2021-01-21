@@ -9,6 +9,7 @@ import Login from './pages/Login/Login';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Register from './pages/Register/Register';
 import Profile from './pages/profile/Profile';
+import Course from './pages/course/Course';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={LandingPage} />
               {/* <PrivateRoute exact path="/enrollment" component={Enrollment}/> */}
-              {/* <PrivateRoute exact path="/course" component={Course}/> */}
+              <PrivateRoute exact path="/course/:id" component={Course}/>
               <PrivateRoute exact path="/profile" component={Profile}/>
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register}/>
