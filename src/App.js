@@ -21,7 +21,7 @@ function App() {
               <Route exact path="/" component={LandingPage} />
               {/* <PrivateRoute exact path="/enrollment" component={Enrollment}/> */}
               {/* <PrivateRoute exact path="/course" component={Course}/> */}
-              {/* <PrivateRoute exact path="/profile" component={Profile}/> */}
+              <PrivateRoute exact path="/profile" component={Profile}/>
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register}/>
             </Switch>
