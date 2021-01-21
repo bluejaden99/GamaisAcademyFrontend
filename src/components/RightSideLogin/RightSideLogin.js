@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Alert } from "react-bootstrap";
 import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
-import "./RightSide.css";
+import "./RightSideLogin.css";
 
 export default function RightSide() {
   const { login, currentUser } = useAuth();
@@ -31,7 +31,7 @@ export default function RightSide() {
         <div class="card-body">LOGIN</div>
         <br/>
         <div class="card-body-2">
-          Belum punya akun? <a href="">Register</a>
+          Belum punya akun? <a href="/register">Register</a>
         </div>
         <br/>
         <Form onSubmit={handleSubmit}>

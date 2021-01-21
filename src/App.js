@@ -6,7 +6,8 @@ import { AuthContextProvider, useAuth } from './contexts/AuthContext';
 import ScrollToTop from './components/ScrollToTop';
 import React, { useState } from 'react';
 import Login from './pages/Login/Login';
-import LandingPage from './pages/LandingPage/LandingPage'
+import LandingPage from './pages/LandingPage/LandingPage';
+import Register from './pages/Register/Register'
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
               {/* <PrivateRoute exact path="/course" component={Course}/> */}
               {/* <PrivateRoute exact path="/profile" component={Profile}/> */}
               <Route exact path="/login" component={Login} />
-              {/* <Route exact path="/register" component={Register}/> */}
+              <Route exact path="/register" component={Register}/>
             </Switch>
           </ScrollToTop>
         </div>

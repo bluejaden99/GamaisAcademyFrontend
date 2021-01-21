@@ -23,9 +23,31 @@ export const AuthContextProvider = (props) => {
         await axios.post('http://localhost:5000/users/login', {
             email, password
         }).then(res => {
-            if (res.status == 200) {
+            if (res.status >= 200 || res.status <= 299){
                 const loggedUser = res.data.data.user;
 
+                // Save user data in local storage
+                localStorage.setItem('academyUser', JSON.stringify(loggedUser));
+
+                setCurrentUser(loggedUser);
+            }
+        })
+    }
+
+    const register = async (nama, email, password, tgllahir) => {
+        await axios.post('http://localhost:5000/users/signup', {
+            nama,
+            email,
+            password,
+            "passwordConfirm": password,
+            "photo": "default.jpg",
+            "tanggalLahir" : 123456789,
+            "domisili" : "Bandung"
+        }).then(res => {
+            console.log(res)
+            if (res.status >= 200 || res.status <= 299) {
+                const loggedUser = res.data.data.user;
+                console.log(res.data.data.user)
                 // Save user data in local storage
                 localStorage.setItem('academyUser', JSON.stringify(loggedUser));
 
@@ -43,7 +65,8 @@ export const AuthContextProvider = (props) => {
     const value = {
         currentUser,
         login,
-        logout
+        logout,
+        register
     }
 
     return (
