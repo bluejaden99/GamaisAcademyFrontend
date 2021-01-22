@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Form, Alert } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 import "./RightSideLogin.css";
 
 export default function RightSide() {
@@ -10,9 +11,14 @@ export default function RightSide() {
   const [password, setPassword] = useState("");
   const history = useHistory();
   const [success, setSuccess] = useState(true);
+  const [loading, setLoading] = useState(false);
 
+  function validateForm() {
+    return !(email.length > 0 && password.length > 0)
+  }
 
   async function handleSubmit(event) {
+    setLoading(true)
     try {
       await login(email, password);
       history.push('/');
@@ -20,6 +26,7 @@ export default function RightSide() {
       console.log('fail to login');
       setSuccess(false)
     }
+    setLoading(false)
   }
 
   return (
@@ -58,13 +65,16 @@ export default function RightSide() {
           </Form.Group>
         </Form>
         <br/>
-      <button type="submit" onClick={handleSubmit}>LOGIN</button>
+      <button type="submit" onClick={handleSubmit} disabled={validateForm()} >LOGIN</button>
+      {loading &&
+        <div id="loading">
+          <ReactLoading color="#FF0000" height={'20%'} width={'100%'}/>
+        </div>}
+      {!success && 
+        <div class="alert alert-danger">
+          <strong>Failed!</strong> Email or Password incorrect
+        </div>}
     </div>
-    {!success && 
-    <div class="alert alert-danger">
-      <strong>Failed!</strong> Email or Password incorrect
-  </div>
-    }
   </div>
   );
 }
