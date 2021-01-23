@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import axios from 'axios';
 import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
+import AuthAxios from '../../contexts/Axios'
 import './Enrollment.css'
 
 function Enrollment() {
@@ -15,13 +15,11 @@ function Enrollment() {
   const [desc, setDesc] = useState('');
 
   const history = useHistory();
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   async function handleEnroll() {
     try {
-      axios.post(`http://localhost:5000/users/enrollment/${id}`,{
-        headers: {
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjA3N2NjMTRkMjVjYTAyYzM2MGM5MCIsImlhdCI6MTYxMTMzNjU1MCwiZXhwIjoxNjE5MTEyNTUwfQ.jwBpNQDbIi86IdFyIrjZTUDFHBVvisLSDI9pKXfSNdQ` 
-        }})
+      AuthAxios.post(`${backendUrl}/users/enrollment/${id}`)
       .then(res => {
         if (res.status >= 200 || res.status <= 299){
           history.push(`/course/${id}`);
@@ -35,7 +33,7 @@ function Enrollment() {
 
   // Run ONCE
   useEffect(() => {
-    axios.get(`http://localhost:5000/courses/${id}`)
+    AuthAxios.get(`${backendUrl}/courses/${id}`)
     .then( res => {
       getTitle(res.data.data.course[0].judul);
       getTeacher(res.data.data.course[0].pengajar);
