@@ -22,9 +22,10 @@ export default function RightSide() {
   }
 
   async function handleSubmit(event) {
+    var tanggalLahir = Date.parse(tgllahir);
     setLoading(true)
     try {
-      await register(nama, email, password, tgllahir);
+      await register(nama, email, password, confpassword, tanggalLahir, domisili);
       history.push('/');
     } catch {
       console.log('fail to login');
@@ -98,7 +99,8 @@ export default function RightSide() {
         </Form>
         <br/>
       <button type="submit" onClick={handleSubmit} disabled={validateForm()} >REGISTER</button>
-      {loading &&
+    </div>    
+    {loading &&
       <div id="loading">
         <ReactLoading color="#d3d3d3" height={'20%'} width={'20%'}/>
       </div>}
@@ -106,7 +108,6 @@ export default function RightSide() {
       <div class="alert alert-danger">
         <strong>Failed!</strong> Server error, try again
       </div>}
-    </div>    
     </div>
   );
 }

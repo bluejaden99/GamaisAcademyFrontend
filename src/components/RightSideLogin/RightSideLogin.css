@@ -69,7 +69,7 @@ button[disabled]{
 }
 
 #loading{
-	margin: 0 50% 5% 50%;
+	margin-left:45%;
 }
 
 @media screen and (max-width: 767px) {

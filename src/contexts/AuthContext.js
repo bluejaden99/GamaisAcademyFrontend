@@ -34,15 +34,14 @@ export const AuthContextProvider = (props) => {
         })
     }
 
-    const register = async (nama, email, password, tgllahir) => {
+    const register = async (nama, email, password, passwordConfirm, tanggalLahir, domisili) => {
         await axios.post('http://localhost:5000/users/signup', {
             nama,
             email,
             password,
-            "passwordConfirm": password,
-            "photo": "default.jpg",
-            "tanggalLahir" : 123456789,
-            "domisili" : "Bandung"
+            passwordConfirm,
+            tanggalLahir,
+            domisili
         }).then(res => {
             console.log(res)
             if (res.status >= 200 || res.status <= 299) {
