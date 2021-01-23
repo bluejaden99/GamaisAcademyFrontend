@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import { useAuth } from '../../contexts/AuthContext';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './Enrollment.css'
 
 function Enrollment() {
@@ -14,16 +14,23 @@ function Enrollment() {
   const [teacher, setTeacher] = useState('');
   const [desc, setDesc] = useState('');
 
-  async function handleEnroll(event) {
-    // setLoading(true)
-    // try {
-    //   await login(email, password);
-    //   history.push('/');
-    // } catch {
-    //   console.log('fail to login');
-    //   setSuccess(false)
-    // }
-    // setLoading(false)
+  const history = useHistory();
+
+  async function handleEnroll() {
+    try {
+      axios.post(`http://localhost:5000/users/enrollment/${id}`,{
+        headers: {
+            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjA3N2NjMTRkMjVjYTAyYzM2MGM5MCIsImlhdCI6MTYxMTMzNjU1MCwiZXhwIjoxNjE5MTEyNTUwfQ.jwBpNQDbIi86IdFyIrjZTUDFHBVvisLSDI9pKXfSNdQ` 
+        }})
+      .then(res => {
+        if (res.status >= 200 || res.status <= 299){
+          history.push(`/course/${id}`);
+        }
+      })
+    }
+    catch {
+      console.log('fail to login');
+    }
   }
 
   // Run ONCE
@@ -70,7 +77,7 @@ function Enrollment() {
         <p>{teacher}</p>
         {desc}
         <div id="ButtonHolder" className="container-button" onClick = {handleEnroll}>
-          <a href="/" className="btn more-btn">Enroll</a>
+          <a className="btn more-btn">Enroll</a>
         </div>
       </div>
     </div>
