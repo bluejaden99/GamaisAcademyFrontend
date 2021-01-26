@@ -21,7 +21,7 @@ const breakPoints = [
     // {REMOVED LATER}
     const longText = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc congue nibh augue, ut commodo libero venenatis ut. Vivamus faucibus lorem non laoreet volutpat. Aenean vitae est dignissim, vehicula nisi posuere."
     const thumbLink = "https://upload.wikimedia.org/wikipedia/commons/e/e2/OrteliusWorldMap1570.jpg";
-    const coursesEndpoint = "http://127.0.0.1:5000/courses";
+    const coursesEndpoint = `${process.env.REACT_APP_BACKEND_URL}/courses`;
 
     // State(s)
     const [courses, setCourses] = useState([]);
