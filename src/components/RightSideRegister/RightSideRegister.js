@@ -7,25 +7,30 @@ export default function RightSide() {
   const [nama, setNama] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confpassword, setConfPassword] = useState("");
   const [tgllahir, setTglahir] = useState("");
+  const [domisili, setDomisili] = useState("");
 
   const history = useHistory();
-  const [success, setSuccess] = useState(true);
   const { register } = useAuth();
 
+  function validateForm() {
+    return !(nama.length > 0 && email.length > 0 && password.length > 0 && confpassword.length > 0 && tgllahir.length > 0 && domisili.length > 0 && password.localeCompare(confpassword) === 0)
+  }
+
   async function handleSubmit(event) {
+    var tanggalLahir = Date.parse(tgllahir);
     try {
-      await register(nama, email, password, tgllahir);
+      await register(nama, email, password, confpassword, tanggalLahir, domisili);
       history.push('/');
     } catch {
-      console.log('fail to login');
-      setSuccess(false)
+      alert("Failled to register")
     }
   }
 
   return (
     <div class="rightSideContainer">
-      `<div class="card">
+      <div class="card">
         <br/>
         <br/>
         <div class="card-body">REGISTER</div>
@@ -52,6 +57,15 @@ export default function RightSide() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </Form.Group>
+          <Form.Group size="lg" controlId="email">
+            <Form.Label>Domisili</Form.Label>
+            <Form.Control
+              autoFocus
+              type="domisili"
+              value={domisili}
+              onChange={(e) => setDomisili(e.target.value)}
+            />
+          </Form.Group>
           <Form.Group size="lg" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control
@@ -60,22 +74,26 @@ export default function RightSide() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
+          <Form.Group size="lg" controlId="password">
+            <Form.Label>Konfirmasi Password</Form.Label>
+            <Form.Control
+              type="password"
+              value={confpassword}
+              onChange={(e) => setConfPassword(e.target.value)}
+            />
+          </Form.Group>
           <Form.Group size="lg" controlId="tgllahir">
             <Form.Label>Tanggal Lahir</Form.Label>
               <Form.Control
-                type="tgllahir"
+                type="date"
                 value={tgllahir}
                 onChange={(e) => setTglahir(e.target.value)}
               />
           </Form.Group>
         </Form>
         <br/>
-      <button type="submit" onClick={handleSubmit}>REGISTER</button>
-    </div>
-    {!success && 
-    <div class="alert alert-danger">
-      <strong>Failed!</strong> Server error, try again
-    </div>}
+      <button type="submit" onClick={handleSubmit} disabled={validateForm()} >REGISTER</button>
+    </div>    
     </div>
   );
 }

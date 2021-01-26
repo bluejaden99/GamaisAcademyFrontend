@@ -15,9 +15,9 @@
     display: flex;
 }
 
-.profPic {
-    height: 125px;
-    width: 125px;
+#profPic {
+    height: 5rem;
+    width: 5rem;
     border-radius: 100%;
     margin-right: 15px;
 }

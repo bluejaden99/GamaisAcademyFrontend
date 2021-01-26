@@ -1,0 +1,29 @@
+.container-enrollment{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  margin : 10vh 10vw;
+  height: 50vh;
+  text-align: start;
+}
+
+.container-thumbnail{
+  width: 40vw;
+}
+
+.container-detail{
+  padding: 5vh 1vw;
+  width: 60vw;
+  overflow: hidden;
+  word-wrap: break-word; 
+  display: table-cell;
+  vertical-align: middle;
+  position: relative; 
+}
+
+.container-button{
+  position: absolute; 
+  bottom: 0;
+  right: 0;
+}

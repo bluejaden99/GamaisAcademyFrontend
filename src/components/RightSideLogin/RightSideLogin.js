@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Alert } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import "./RightSideLogin.css";
@@ -9,16 +9,17 @@ export default function RightSide() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
-  const [success, setSuccess] = useState(true);
 
+  function validateForm() {
+    return !(email.length > 0 && password.length > 0)
+  }
 
   async function handleSubmit(event) {
     try {
       await login(email, password);
       history.push('/');
     } catch {
-      console.log('fail to login');
-      setSuccess(false)
+      alert("Failled to login")
     }
   }
 
@@ -58,13 +59,8 @@ export default function RightSide() {
           </Form.Group>
         </Form>
         <br/>
-      <button type="submit" onClick={handleSubmit}>LOGIN</button>
+      <button type="submit" onClick={handleSubmit} disabled={validateForm()} >LOGIN</button>
     </div>
-    {!success && 
-    <div class="alert alert-danger">
-      <strong>Failed!</strong> Email or Password incorrect
-  </div>
-    }
   </div>
   );
 }

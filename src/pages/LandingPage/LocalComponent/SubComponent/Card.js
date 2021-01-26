@@ -22,6 +22,7 @@ const Card = function ({ course, imgLink, longText }) {
 
     const Title = getTitle();
     const Description = getDescription();
+    const url = "/enrollment/" + course._id
 
     // JSX Here
     return(
@@ -37,7 +38,7 @@ const Card = function ({ course, imgLink, longText }) {
                     <h5 id="CardDescription">{Description}</h5>
                 </div>
                 <div id="ButtonHolder">
-                    <a href="/" className="btn more-btn">Read More</a>
+                    <a href={url} className="btn more-btn">Read More</a>
                 </div>
             </div>
         </>

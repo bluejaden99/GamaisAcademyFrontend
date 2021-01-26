@@ -1,15 +1,9 @@
 import React from 'react';
-import axios from 'axios';
-import CoursesSection from '../../components/courses_section/CoursesSection'
+import AuthAxios from '../../contexts/Axios';
+import './Profile.css';
+import CoursesSection from '../../components/courses_section/CoursesSection';
 
-const axiosCall = axios.create();
-
-axiosCall.interceptors.request.use(function (config) {
-    const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDAwNDY0OTdhZTI2MTUyNTg1Yzg2YiIsImlhdCI6MTYxMDcyNzEyNiwiZXhwIjoxNjE4NTAzMTI2fQ.7bMj2ov9vfre4rcBpvAtq9BXyTNO4TLP4Y2yDru1Dbo';
-    config.headers.Authorization = accessToken ? `Bearer ${accessToken}` : '';
-    return config;
-})
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -19,32 +13,34 @@ class Profile extends React.Component {
     }
   }
 
-  componentDidMount() {
-    // axiosCall.get("http://localhost:5000/courses", {
-    //     "email": "email@gmail.com",
-    //     "password": "passwordaja"
-    // }).then(res => {
-    //     console.log(res.data);
-    // })
-    // .catch(() => console.log("error"));
+  getDataCourse(id){
+    let { userCourses } = this.state;
+    AuthAxios.get(`${backendUrl}/courses/${id}`)
+    .then(res => {
+      this.setState({userCourses: [...userCourses, res.data.data.course[0]]})
+    })
+  }
 
-    axiosCall.get("http://localhost:5000/users/me")
-        .then(res => {
-            let tempProfile = {};
-            tempProfile.avatarUrl = res.data.data.user.photo;
-            tempProfile.name = res.data.data.user.nama;
-            tempProfile.email = res.data.data.user.email;
-            this.setState({userProfile: tempProfile});
-            this.setState({userCourses: res.data.data.user.courses});
-        })
-        .catch(() => console.log("error"));
+  componentDidMount() {
+    AuthAxios.get(`${backendUrl}/users/me`)
+      .then(res => {
+          let tempProfile = {};
+          tempProfile.avatarUrl = res.data.data.user.photo;
+          tempProfile.name = res.data.data.user.nama;
+          tempProfile.email = res.data.data.user.email;
+          this.setState({userProfile: tempProfile});
+          res.data.data.user.courses.map((course) => {
+            this.getDataCourse(course);
+          })
+      })
+      .catch(() => alert("error"));
   }
 
   render() {
     return (
-    <div>
-        <CoursesSection profile={ this.state.userProfile } courses={ this.state.userCourses }/>
-    </div>
+      <div className= "container-profile">
+          <CoursesSection profile={ this.state.userProfile } courses={ this.state.userCourses }/>
+      </div>
   );
   }
 }

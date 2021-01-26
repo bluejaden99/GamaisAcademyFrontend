@@ -1,0 +1,10 @@
+.container-profile{
+  margin: 2rem 5rem 3rem 5rem;
+}
+
+@media screen and (max-width: 767px) {
+  .container-profile{
+    margin: 1rem 1rem 1rem 1rem;
+    min-height: 65vh;
+  }
+}

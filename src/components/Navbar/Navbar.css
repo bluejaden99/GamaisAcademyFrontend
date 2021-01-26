@@ -26,6 +26,22 @@
   text-decoration: underline;
 }
 
+.homeButton{
+  display: flex;
+  justify-content: center;
+}
+
+.logoNavbar{
+  width: 3vw;
+}
+
+.titleNavbar{
+  font-family: "Monserat";
+  color: black;
+  vertical-align: middle;
+  margin: auto 0;
+}
+
 @media screen and (max-width: 767px) {
   .navbar-items {
     flex-direction: column;

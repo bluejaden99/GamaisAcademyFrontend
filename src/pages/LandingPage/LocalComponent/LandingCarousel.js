@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import AuthAxios from '../../../contexts/Axios';
 import Carousel from 'react-elastic-carousel';
 import Card from './SubComponent/Card';
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -29,9 +29,9 @@ const breakPoints = [
 
     // Run ONCE
     useEffect(() => {
-        axios.get(coursesEndpoint).then( res => {
+        AuthAxios.get(coursesEndpoint).then( res => {
             setCourses(res.data.data.course);
-        }).catch(e => console.log(e))
+        }).catch(e => alert("Error"))
     }, [])
 
     // Function(s)

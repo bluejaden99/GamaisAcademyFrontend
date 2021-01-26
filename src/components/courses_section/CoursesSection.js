@@ -2,6 +2,7 @@ import React from 'react';
 import CourseCard from '../course_card/CourseCard';
 import styles from './CoursesSection.module.css';
 import Carousel, { consts } from 'react-elastic-carousel';
+import { Avatar } from '@material-ui/core'
 
 function myArrow({ type, onClick, isEdge }) {
     const pointer = type === consts.PREV ? (
@@ -46,12 +47,11 @@ const CoursesSection = ({ profile, courses }) => {
     return (
         <div>
             <div className={ styles.profileContainer }>
-                <img src={ profile.avatarUrl }
-                className={ styles.profPic } alt={ "avatar" }></img>
-                <div>
-                    <h1>{ profile.name }</h1>
-                    <p><small>{ profile.email }</small></p>
-                </div>
+              <Avatar alt={ "avatar" } id = {styles.profPic } src={profile.avatarUrl}/>
+              <div>
+                  <h1>{ profile.name }</h1>
+                  <p><small>{ profile.email }</small></p>
+              </div>
             </div>
             <h2 className={ styles.myCourses }>My Courses</h2>
             <div className={ styles.coursesContainer }>
@@ -69,7 +69,7 @@ const CoursesSection = ({ profile, courses }) => {
       ]}>
                     {
                         courses.map((course) => {
-                            return <CourseCard {...course} key={course.title}/>
+                            return <CourseCard course={course} key={course.title}/>
                         })
                     }
                 </Carousel>
