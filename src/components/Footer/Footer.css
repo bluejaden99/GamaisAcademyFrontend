@@ -18,6 +18,16 @@
   width: 100%;
 }
 
+.footerContainerDiffer{
+  background-color:#a4cba3; 
+  color:black;
+  padding:30px 20px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
 #footerIcon{
   font-size:2rem;
   color : white;

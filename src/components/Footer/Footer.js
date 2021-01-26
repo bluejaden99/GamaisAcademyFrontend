@@ -8,8 +8,12 @@ import './Footer.css'
 
 class Footer extends React.Component {
   render() {
+    let footerDiffer = false
+    if(window.location.href.includes('/register') || window.location.href.includes('/login')){
+      footerDiffer = true
+    }
     return (
-      <div className="footerContainer">
+      <div className={footerDiffer ? "footerContainerDiffer" : "footerContainer"}>
         <div className="footerRightPart">
           <div id="rowContainer" className="footerLogoTitleConteiner">
             <div>
