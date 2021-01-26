@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
-import AuthAxios from '../../contexts/Axios'
+import AuthAxios from '../../contexts/Axios';
 import './Enrollment.css'
 
 function Enrollment() {
   let { id } = useParams();
-  const { login, currentUser } = useAuth();
+  const {currentUser } = useAuth();
   const thumbLink = "https://upload.wikimedia.org/wikipedia/commons/e/e2/OrteliusWorldMap1570.jpg";
 
   const [title, setTitle] = useState('');
@@ -17,18 +17,34 @@ function Enrollment() {
   const history = useHistory();
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
+  function alreadyEnroll(course, arrayOfCourses)
+  {
+      return (arrayOfCourses.indexOf(course) > -1);
+  }
+
   async function handleEnroll() {
-    try {
-      AuthAxios.post(`${backendUrl}/users/enrollment/${id}`)
-      .then(res => {
-        if (res.status >= 200 || res.status <= 299){
-          history.push(`/course/${id}`);
+    if(currentUser){
+      if(alreadyEnroll(`${id}`,currentUser.courses)){
+        alert("You already enrolled")
+      }
+      else{
+        try {
+          AuthAxios.post(`${backendUrl}/users/enrollment/${id}`)
+          .then(res => {
+            if (res.status >= 200 || res.status <= 299){
+              history.push(`/course/${id}`);
+            }
+          })
         }
-      })
+        catch {
+          alert("Failed to enroll");
+        }
+      }
     }
-    catch {
-      console.log('fail to login');
-    }
+   else {
+     alert("You have to login")
+     history.push(`/login`);
+   }
   }
 
   // Run ONCE
@@ -39,7 +55,7 @@ function Enrollment() {
       getTeacher(res.data.data.course[0].pengajar);
       getDescription(res.data.data.course[0].desc);
       })
-    .catch(e => console.log(e))
+    .catch(e => alert("Error"))
   }, [])
 
   const getTitle = (rawTitle) => {

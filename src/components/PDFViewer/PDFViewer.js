@@ -13,7 +13,7 @@ const PDFViewer = ({ link }) => {
 
     
     return (  
-        <div>
+        <div className="pdf-container">
             <iframe className="pdf" src={documentUrl+"#FitH"} />
         </div>
     );

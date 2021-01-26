@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useAuth } from '../../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
-import ReactLoading from 'react-loading';
 
 export default function RightSide() {
   const [nama, setNama] = useState("");
@@ -13,8 +12,6 @@ export default function RightSide() {
   const [domisili, setDomisili] = useState("");
 
   const history = useHistory();
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(true);
   const { register } = useAuth();
 
   function validateForm() {
@@ -23,15 +20,12 @@ export default function RightSide() {
 
   async function handleSubmit(event) {
     var tanggalLahir = Date.parse(tgllahir);
-    setLoading(true)
     try {
       await register(nama, email, password, confpassword, tanggalLahir, domisili);
       history.push('/');
     } catch {
-      console.log('fail to login');
-      setSuccess(false)
+      alert("Failled to register")
     }
-    setLoading(false)
   }
 
   return (
@@ -100,14 +94,6 @@ export default function RightSide() {
         <br/>
       <button type="submit" onClick={handleSubmit} disabled={validateForm()} >REGISTER</button>
     </div>    
-    {loading &&
-      <div id="loading">
-        <ReactLoading color="#d3d3d3" height={'20%'} width={'20%'}/>
-      </div>}
-      {!success && 
-      <div class="alert alert-danger">
-        <strong>Failed!</strong> Server error, try again
-      </div>}
     </div>
   );
 }

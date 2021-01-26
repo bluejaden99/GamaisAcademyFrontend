@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import Footer from '../../components/Footer/Footer';
-import Navbar from '../../components/Navbar/Navbar';
 import PDFViewer from '../../components/PDFViewer/PDFViewer';
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
+import AuthAxios from '../../contexts/Axios';
+import './Course.css'
 
 const Course = () => {
     let { id } = useParams();
     const [course, setCourse] = useState('');
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
     useEffect(() => {
-        
-        const url = '/courses/' + id;
-
-        fetch(url)
-            .then(res => res.json())
-            .then(res => {
-                console.log(res);
-                setCourse(res.data.course[0]);
-            });
-    }, []);
+        AuthAxios.get(`${backendUrl}/courses/${id}`)
+        .then( res => {
+            setCourse(res.data.data.course[0]);
+        })
+        .catch(e =>alert("error"))
+    }, [])
 
     return (  
         <div>
@@ -28,16 +25,15 @@ const Course = () => {
                 textAlign: 'left'
             }}>
                 <VideoPlayer link={course.video}/>
-                <div style={{
+                <div className = "title-course" style={{
                     fontWeight: 'bold'
                 }}>
                     {course.judul}
                 </div>
-                <div>
+                <div className="desc-course">
                     {course.desc}
                 </div>
-                <div>
-                    {course.pengajar}
+                <div className="teacher">Pengajar : {course.pengajar}
                 </div>
                 <PDFViewer link={course.modul}/>
             </div>

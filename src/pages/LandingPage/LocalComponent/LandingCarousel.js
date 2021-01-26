@@ -31,7 +31,7 @@ const breakPoints = [
     useEffect(() => {
         AuthAxios.get(coursesEndpoint).then( res => {
             setCourses(res.data.data.course);
-        }).catch(e => console.log(e))
+        }).catch(e => alert("Error"))
     }, [])
 
     // Function(s)

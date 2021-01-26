@@ -1,0 +1,26 @@
+.title-course{
+  margin-top: 10px;
+  font-family: "Monserat";
+  font-weight: 'bold';
+  font-size: 3rem;
+}
+
+.desc-course{
+  margin-top: 1rem;
+}
+
+.teacher{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .title-course{
+    font-weight: 'bold';
+    font-size: 1.5rem;
+  }
+
+  .desc-course{
+    margin-top: 0.5rem;
+  }
+}

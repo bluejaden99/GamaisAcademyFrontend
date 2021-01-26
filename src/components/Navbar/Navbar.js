@@ -3,7 +3,6 @@ import {
   AppBar,
   Toolbar,
   Drawer,
-  Typography,
   Button,
   IconButton,
   useMediaQuery
@@ -46,8 +45,7 @@ const Navbar = () => {
     <div className="navbar-items">
       {currentUser ?
         <>
-          <Link className="navbar-link">Courses</Link>
-          <Link className="navbar-link">Profile</Link>
+          <Link to="/profile" className="navbar-link">Profile</Link>
           <NavbarButton onClick={logout}>Logout</NavbarButton>
         </>
         :
@@ -62,10 +60,10 @@ const Navbar = () => {
       <AppBar position="static" color="inherit">
         <Toolbar id="navbarContainer">
           <div id="rowContainer">
-            <IconButton >
-              <img href="/" src={logo} className="navbarLogo"></img>
-            </IconButton>
-            <Typography variant="h6" > Gamais Academy</Typography>
+            <Link to='/' className = "homeButton" style={{ textDecoration: 'none' }}>
+              <img  className = "logoNavbar" src={logo} alt='logo'/>
+              <div className = "titleNavbar">Gamais Academy</div>
+            </Link>
           </div>
 
           {isMobile ?

@@ -44,10 +44,8 @@ export const AuthContextProvider = (props) => {
             tanggalLahir,
             domisili
         }).then(res => {
-            console.log(res)
             if (res.status >= 200 || res.status <= 299) {
                 const loggedUser = res.data.data.user;
-                console.log(res.data.data.user)
                 // Save user data in local storage
                 localStorage.setItem('academyUser', JSON.stringify(loggedUser));
                 localStorage.setItem('token', res.data.token);
