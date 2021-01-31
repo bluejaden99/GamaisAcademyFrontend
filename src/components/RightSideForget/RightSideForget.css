@@ -1,0 +1,17 @@
+.card-body-forget{
+  padding: 1rem 1rem;
+  font-size: 0.7rem;
+}
+
+#forget-button{
+  width: 160px;
+}
+
+@media screen and (max-width: 350px) {
+  #forget-button{
+    margin-left: 25%;
+  }
+  .card-body{
+    font-size: smaller;
+  }
+}

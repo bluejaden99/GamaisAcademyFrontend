@@ -1,14 +1,13 @@
+
 import React from 'react';
 import LeftSide from '../../components/LeftSide/LeftSide';
-import RightSide from '../../components/RightSideRegister/RightSideRegister';
+import RightSide from '../../components/RightSideReset/RightSideReset';
 import { useAuth } from '../../contexts/AuthContext';
 import { Redirect } from 'react-router-dom';
 
-
-function Register() {
-  // Temporary login fo routing purposes,
-  // will integrate from Nabilah's login page soon
+function ForgetPassword() {
   const { currentUser } = useAuth();
+
   return (
     <div>
       {currentUser ?
@@ -24,4 +23,4 @@ function Register() {
   )
 }
 
-export default Register;
+export default ForgetPassword;

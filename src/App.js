@@ -11,6 +11,8 @@ import Register from './pages/Register/Register';
 import Profile from './pages/profile/Profile';
 import Course from './pages/course/Course';
 import Enrollment from './pages/Enrollment/Enrollment';
+import ForgetPassword from './pages/ForgetPassword/ForgetPassword';
+import ResetPassword from './pages/ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
               <PrivateRoute exact path="/profile" component={Profile}/>
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register}/>
+              <Route exact path="/forgetpassword" component={ForgetPassword}/>
+              <Route exact path="/resetPassword/:token" component={ResetPassword}/>
               <Route exact path="/enrollment/:id" component={Enrollment} />
             </Switch>
           </ScrollToTop>

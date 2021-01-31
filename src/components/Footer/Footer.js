@@ -9,7 +9,7 @@ import './Footer.css'
 class Footer extends React.Component {
   render() {
     let footerDiffer = false
-    if(window.location.href.includes('/register') || window.location.href.includes('/login')){
+    if(window.location.href.includes('/register') || window.location.href.includes('/login') || window.location.href.includes('/forget') || window.location.href.includes('/reset')){
       footerDiffer = true
     }
     return (

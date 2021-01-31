@@ -55,7 +55,7 @@ export default function RightSide() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <br/>
-            <a href="">Forget Password?</a>
+            <a href="/forgetpassword">Forget Password?</a>
           </Form.Group>
         </Form>
         <br/>

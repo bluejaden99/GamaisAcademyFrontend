@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import AuthAxios from './Axios';
 
 const AuthContext = createContext();
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
@@ -61,11 +62,30 @@ export const AuthContextProvider = (props) => {
         // Manggil API logout
     }
 
+    const forgetPassword = async (email) => {
+        await axios.post(`${backendUrl}/users/forgotPassword`, {
+            email
+        })
+    }
+
+    const resetPassword = async (password, passwordConfirm, token) => {
+        await AuthAxios.patch(`${backendUrl}/users/resetPassword/${token}`, {
+            password, passwordConfirm
+        }).then(res=>{
+            const loggedUser = res.data.data.user;
+            localStorage.setItem('academyUser', JSON.stringify(loggedUser));
+            localStorage.setItem('token', res.data.token);
+            setCurrentUser(loggedUser);
+        })
+    }
+
     const value = {
         currentUser,
         login,
         logout,
-        register
+        register,
+        forgetPassword,
+        resetPassword
     }
 
     return (

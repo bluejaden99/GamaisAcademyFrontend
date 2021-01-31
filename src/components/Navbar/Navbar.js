@@ -8,7 +8,7 @@ import {
   useMediaQuery
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import logo from '../../assets/img/logo192.png';
+import logo from '../../assets/img/circle-cropped.png';
 import { withStyles } from '@material-ui/core/styles';
 import './Navbar.css';
 import '../Footer/Footer.css';
