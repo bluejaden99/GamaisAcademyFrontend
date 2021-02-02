@@ -8,6 +8,11 @@
   padding-bottom: 15px;
 }
 
+.footerLink{
+  font-size: smaller;
+  color: white;
+}
+
 .footerContainer{
   background-color:#3A6B35; 
   color:white;

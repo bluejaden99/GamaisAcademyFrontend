@@ -22,6 +22,7 @@ class Footer extends React.Component {
             <div className="footerTitle">Gamais Academy</div>
           </div>
           <div className="footerMark">© 2020 Gamais ITB & HMIF ITB</div>
+          <a className="footerLink" href="http://www.freepik.com">Designed by vectorjuice / Freepik</a>
         </div>
         <div>
           <div >
