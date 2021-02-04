@@ -17,7 +17,7 @@ class Footer extends React.Component {
         <div className="footerRightPart">
           <div id="rowContainer" className="footerLogoTitleConteiner">
             <div>
-              <img src={logo} className="footerLogo"></img>
+              <img src={logo} alt='' className="footerLogo"></img>
             </div>
             <div className="footerTitle">Gamais Academy</div>
           </div>
