@@ -13,11 +13,12 @@ class Profile extends React.Component {
     }
   }
 
-  getDataCourse(id){
-    let { userCourses } = this.state;
-    AuthAxios.get(`${backendUrl}/courses/${id}`)
+  async getDataCourse(id){
+    await AuthAxios.get(`${backendUrl}/courses/${id}`)
     .then(res => {
-      this.setState({userCourses: [...userCourses, res.data.data.course[0]]})
+      this.setState({
+        userCourses: this.state.userCourses.concat([res.data.data.course[0]])
+      })
     })
   }
 
